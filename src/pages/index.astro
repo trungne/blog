@@ -1,9 +1,117 @@
 ---
 import BaseLayout from "@layout/BaseLayout.astro";
 import Container from "@components/Container";
+import NavBar from "@components/NavBar";
+import Avatar from "@components/Avatar";
+import githubPC from "@assets/github-pc.png";
+import githubMobile from "@assets/github-mobile.png";
+import youtubePC from "@assets/youtube-pc.png";
+import youtubeMobile from "@assets/youtube-mobile.png";
 ---
 
 <BaseLayout title="Trung Nguyen's home">
-    <Container as="main">
+    <NavBar />
+    <Container className="flex flex-col relative h-[calc(100%-64px)]" as="main">
+        <section class="flex flex-col md:flex-row justify-around items-center">
+            <Avatar />
+            <h1
+                class="text-center font-extrabold text-xl md:text-2xl lg:text-3xl"
+            >
+                Hi there! I'm Trung
+                <span class="hidden md:inline-block">-</span>
+                <br class="inline-block md:hidden" />
+                a
+                <span class="text-left relative inline-flex overflow-y-hidden">
+                    <span
+                        class="select-none text-transparent"
+                        aria-hidden="true">software developer</span
+                    >
+                    <span
+                        class="absolute top-0 left-0 rotating-words text-accent"
+                    >
+                        <span class="block">software developer</span>
+                        <span class="block">movie maker</span>
+                        <span class="block">learner</span>
+                        <span class="block">software developer</span>
+                    </span>
+                </span>
+            </h1>
+        </section>
+        <section class="flex-grow-[2] grid place-content-center mt-4">
+            <h3 class="text-center text-xl md:text-2xl lg:text-3xl flex-grow">
+                I like to <a
+                    class="font-semibold transition-all glowing-text from-red-400 to-blue-500"
+                    href="/portfolio">build</a
+                > and <a
+                    class="font-semibold glowing-text from-blue-500 to-red-400"
+                    href="/blog">share</a
+                > stuff!
+            </h3>
+        </section>
+        <div class="flex flex-grow items-center justify-around">
+            <a class="bg-white rounded-lg" href="https://github.com/trungne">
+                <picture
+                    class="w-[100px] md:w-[200px] aspect-[100/41] md:aspect-[200/82] rounded-lg"
+                >
+                    <source srcset={githubPC} media="(min-width: 768px)" />
+                    <img src={githubMobile} alt="github" />
+                </picture>
+            </a>
+            <a
+                class="bg-white rounded-lg flex items-center"
+                href="https://www.youtube.com/channel/UCsyzWAjXCFveWqJhfqTf9yA"
+            >
+                <picture
+                    class="grid place-content-center px-2 md:px-4 w-[100px] md:w-[200px] aspect-[100/41] md:aspect-[200/82]"
+                >
+                    <source srcset={youtubePC} media="(min-width: 768px)" />
+                    <img src={youtubeMobile} alt="youtube" />
+                </picture>
+            </a>
+        </div>
     </Container>
 </BaseLayout>
+
+<style>
+    @keyframes rotating {
+        0% {
+            transform: translateY(-75%);
+        }
+
+        33% {
+            transform: translateY(-50%);
+        }
+
+        67% {
+            transform: translateY(-25%);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .rotating-words {
+        animation: rotating 6s ease 0s infinite normal none;
+        animation-play-state: running;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .glowing-text {
+        background-size: 400% 400%;
+        animation: gradient 5s ease infinite;
+        /* animation-play-state: paused; */
+        @apply text-transparent bg-clip-text bg-gradient-to-r;
+    }
+</style>

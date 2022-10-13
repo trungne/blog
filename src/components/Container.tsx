@@ -7,7 +7,7 @@ type Props = {
 } & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
 
 const Container: React.FC<Props> = ({ as: Element = 'div', children, ...props }) => {
-    return <Element {...props} className={cx("max-w-[960px] mx-auto", props.className)}>
+    return <Element {...props} className={cx("max-w-[960px] px-6 mx-auto", props.className)}>
         {children}
     </Element>
 }
