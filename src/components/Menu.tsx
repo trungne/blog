@@ -14,7 +14,7 @@ const Menu: React.FC<MenuProps> = ({ className, ...rest }) => {
                     <button className="btn btn-square btn-ghost p-0">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
-                    <ul className="absolute top-12 right-0 p-2 bg-base-300 z-10">
+                    <ul className="absolute top-12 right-0 p-2 bg-green-sheen z-10">
                         <MenuItems />
                     </ul>
                 </li>
@@ -32,20 +32,4 @@ const MenuItems: React.FC<React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIE
     )
 }
 
-export default () => {
-    return (
-        <>
-            <nav className="navbar mx-auto max-w-[960px]">
-
-                <div className="flex-1">
-                    <a href="/" className="btn btn-ghost normal-case text-xl">Home</a>
-                </div>
-
-                <Menu />
-                <DarkModeSwap />
-
-            </nav>
-        </>
-
-    )
-}
+export default Menu

@@ -1,0 +1,15 @@
+---
+import Menu from "./Menu";
+import DarkModeSwap from "./DarkModeSwap";
+---
+
+<>
+    <nav class="navbar mx-auto max-w-[960px]">
+        <div class="flex-1">
+            <a href="/" class="btn btn-ghost normal-case text-xl">Home</a>
+        </div>
+        <DarkModeSwap className="md:hidden" client:visible />
+        <Menu />
+        <DarkModeSwap className="hidden md:inline-grid" client:visible />
+    </nav>
+</>
