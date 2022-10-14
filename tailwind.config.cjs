@@ -17,9 +17,7 @@ module.exports = {
 	plugins: [require("daisyui"),
 	function ({ addComponents, theme }) {
 		addComponents({
-			'.background': {
-				backgroundColor: theme('colors.eggshell'),
-			}
+
 		})
 	}],
 	daisyui: {
