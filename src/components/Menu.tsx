@@ -8,10 +8,10 @@ const Menu: React.FC<MenuProps> = ({ className, ...rest }) => {
             <ul className="menu menu-horizontal p-0">
                 <MenuItems className="hidden md:block dark:text-primary-content" />
                 <li className="md:hidden relative">
-                    <button className="btn btn-square btn-ghost p-0">
+                    <button className="btn btn-square btn-ghost p-0 text-black dark:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
-                    <ul className="absolute top-12 right-0 p-2 bg-independence dark:bg-eggshell z-10">
+                    <ul className="absolute top-12 right-0 p-2 bg-base-content dark:bg-neutral-content z-10">
                         <MenuItems className="dark:text-primary-content" />
                     </ul>
                 </li>
