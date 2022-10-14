@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 const DarkModeSwap: React.FC<React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>> = ({ className, ...props }) => {
     return (
-        <label {...props} className={cx("swap swap-rotate btn btn-ghost", className)}>
+        <label {...props} className={cx("swap swap-rotate btn btn-ghost text-[#5C2E7E] dark:text-[#fff9ae]", className)}>
             <input onClick={(e) => {
                 if (e.currentTarget.checked) {
                     localStorage.setItem('theme', 'dark')
