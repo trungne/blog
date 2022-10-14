@@ -10,7 +10,7 @@ import youtubeMobile from "@assets/youtube-mobile.png";
 ---
 
 <BaseLayout title="Trung Nguyen's home">
-    <NavBar />
+    <NavBar client:load />
     <Container className="flex flex-col relative h-[calc(100%-64px)]" as="main">
         <section class="flex flex-col md:flex-row justify-around items-center">
             <Avatar />
@@ -49,7 +49,7 @@ import youtubeMobile from "@assets/youtube-mobile.png";
             </h3>
         </section>
         <div class="flex flex-grow items-center justify-around">
-            <a class="bg-white rounded-lg" href="https://github.com/trungne">
+            <a class="dark:bg-white rounded-lg" href="https://github.com/trungne">
                 <picture
                     class="w-[100px] md:w-[200px] aspect-[100/41] md:aspect-[200/82] rounded-lg"
                 >
@@ -58,7 +58,7 @@ import youtubeMobile from "@assets/youtube-mobile.png";
                 </picture>
             </a>
             <a
-                class="bg-white rounded-lg flex items-center"
+                class="dark:bg-white rounded-lg flex items-center"
                 href="https://www.youtube.com/channel/UCsyzWAjXCFveWqJhfqTf9yA"
             >
                 <picture

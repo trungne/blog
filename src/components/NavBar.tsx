@@ -1,5 +1,6 @@
 import type React from "react"
 import cx from "classnames"
+import DarkModeSwap from "./DarkModeSwap"
 
 
 
@@ -34,11 +35,14 @@ const MenuItems: React.FC<React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIE
 export default () => {
     return (
         <>
-            <nav className="navbar bg-base-100 mx-auto max-w-[960px]">
+            <nav className="navbar mx-auto max-w-[960px]">
+
                 <div className="flex-1">
                     <a href="/" className="btn btn-ghost normal-case text-xl">Home</a>
                 </div>
+
                 <Menu />
+                <DarkModeSwap />
 
             </nav>
         </>

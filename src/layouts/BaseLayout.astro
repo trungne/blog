@@ -12,9 +12,21 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat">
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Montserrat"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<script defer>
+			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+			// !("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches
+			if (localStorage.getItem("theme") === "dark") {
+				document.documentElement.classList.add("dark");
+			} else {
+				document.documentElement.classList.remove("dark");
+			}
+		</script>
 
 		<style is:global>
 			html,
@@ -35,7 +47,7 @@ const { title } = Astro.props;
 			}
 		</style>
 	</head>
-	<body>
+	<body class="bg-eggshell dark:bg-independence">
 		<slot />
 	</body>
 </html>
