@@ -3,7 +3,99 @@ import LayoutWithNavBar from "@layout/LayoutWithNavBar.astro";
 ---
 
 <LayoutWithNavBar title="About me">
-    <section>
-        <h1 class="default-text">I mainly build stuff for </h1>
-    </section>
+    <div class="flex justify-center">
+        <section
+            class="relative h-[calc(100vh-96px)] w-full max-w-[500px] overflow-hidden
+            flex justify-center items-center
+            "
+        >
+            <h1
+                class="default-text font-semibold text-xl md:text-2xl text-center z-10"
+            >
+                I build stuff for <br />
+                <div class="relative w-full h-full text-terra">
+                    <span
+                        class="growing-browser-text absolute top-2/4 left-2/4 translate-x-[calc(200vw)]"
+                        >web</span
+                    >
+                    <span
+                        class="growing-phone-text absolute top-2/4 left-2/4 translate-x-[calc(200vw)]"
+                        >mobile</span
+                    >
+                </div>
+            </h1>
+            <div
+                id="browser"
+                class="absolute bg-white dark:bg-slate-500 aspect-video w-full mockup-window border border-base-300 top-2/4 left-2/4 transform translate-x-[-100vw] translate-y-[-50%]"
+            >
+                <div
+                    class="flex justify-center px-4 py-16 border-t border-base-300 default-text"
+                >
+                </div>
+            </div>
+
+            <div
+                id="phone"
+                class="absolute aspect-[375/667] w-full max-w-[375px] top-2/4 left-2/4 mockup-phone translate-x-[calc(-100vw-350px)] translate-y-[-50%]"
+            >
+                <div class="camera"></div>
+                <div class="display w-full h-full">
+                    <div
+                        class="artboard w-full h-full artboard-demo bg-white dark:bg-slate-500"
+                    >
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </LayoutWithNavBar>
+
+<style>
+    @keyframes sliding {
+        0%,
+        25% {
+            transform: translate(calc(-100vw - 350px), -50%);
+        }
+
+        50%,
+        75% {
+            transform: translate(-50%, -50%);
+        }
+
+        100% {
+            transform: translate(calc(100vw), -50%);
+        }
+    }
+
+    @keyframes sliding-text {
+        0%,
+        25% {
+            transform: translate(calc(-100vw), 0%);
+        }
+
+        50%,
+        75% {
+            transform: translate(-50%, 0%);
+        }
+
+        100% {
+            transform: translate(calc(100vw), 0%);
+        }
+    }
+
+    .growing-browser-text {
+        animation: sliding-text 4s ease 0s infinite normal none;
+    }
+
+    .growing-phone-text {
+        animation: sliding-text 4s ease 2s infinite normal none;
+    }
+
+    #phone {
+        animation: sliding 4s ease 2s infinite normal none;
+    }
+
+    #browser {
+        animation: sliding 4s ease 0s infinite normal none;
+    }
+</style>
