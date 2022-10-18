@@ -25,6 +25,8 @@ const MenuItems: React.FC<React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIE
         <>
             <li {...props}><a href="/about">About Me</a></li>
             <li {...props}><a href="/blog">Stuff I wrote</a></li>
+            <li {...props}><a href="/portfolio">Portfolio</a></li>
+
         </>
     )
 }
