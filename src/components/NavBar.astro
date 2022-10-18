@@ -1,6 +1,7 @@
 ---
 import Menu from "./Menu";
 import DarkModeSwap from "./DarkModeSwap";
+const isDarkMode = Astro.cookies.get("darkMode").boolean();
 ---
 
 <nav
@@ -11,7 +12,15 @@ import DarkModeSwap from "./DarkModeSwap";
             >Home</a
         >
     </div>
-    <DarkModeSwap className="md:hidden" client:visible />
+    <DarkModeSwap
+        isDarkMode={isDarkMode}
+        className="md:hidden"
+        client:visible
+    />
     <Menu />
-    <DarkModeSwap className="hidden md:inline-grid" client:visible />
+    <DarkModeSwap
+        isDarkMode={isDarkMode}
+        className="hidden md:inline-grid"
+        client:visible
+    />
 </nav>

@@ -1,19 +1,22 @@
 import React from "react";
 import cx from 'classnames';
-
-const DarkModeSwap: React.FC<React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>> = ({ className, ...props }) => {
+import { setDarkModeCookie } from "src/utils/utils";
+type Props = {
+    isDarkMode: boolean
+} & React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>
+const DarkModeSwap: React.FC<Props> = ({ isDarkMode, className, ...props }) => {
     return (
         <label {...props} className={cx("swap swap-rotate btn btn-ghost text-[#5C2E7E] dark:text-[#fff9ae]", className)}>
             <input onClick={(e) => {
                 if (e.currentTarget.checked) {
-                    localStorage.setItem('theme', 'dark')
+                    setDarkModeCookie(true)
                     document.documentElement.classList.add("dark");
                 }
                 else {
-                    localStorage.removeItem('theme')
+                    setDarkModeCookie(false)
                     document.documentElement.classList.remove("dark");
                 }
-            }} defaultChecked={localStorage.getItem('theme') === 'dark'}
+            }} defaultChecked={isDarkMode}
                 type="checkbox" />
 
             {/* Night */}
