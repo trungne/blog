@@ -13,10 +13,10 @@ const isDarkMode = Astro.cookies.get("darkMode").boolean();
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<!-- <link
+		<link
 			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap"
-		/> -->
+			href="https://fonts.googleapis.com/css2?family=Rubik:wght@200;300;400;500;600;700;800;900&display=swap"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<script define:vars={{ isDarkMode }}>
@@ -30,16 +30,6 @@ const isDarkMode = Astro.cookies.get("darkMode").boolean();
 		</script>
 
 		<style is:global>
-			@font-face {
-				font-family: "Rubik";
-				src: url("/fonts/Rubik.ttf") format("truetype");
-			}
-
-			@font-face {
-				font-family: "Rubik";
-				src: url("/fonts/Rubik-Italic.ttf") format("truetype");
-				font-style: italic;
-			}
 			html,
 			body {
 				padding: 0;
