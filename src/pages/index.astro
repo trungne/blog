@@ -4,10 +4,10 @@ import githubPC from "@assets/github-pc.png";
 import githubMobile from "@assets/github-mobile.png";
 import youtubePC from "@assets/youtube-pc.png";
 import youtubeMobile from "@assets/youtube-mobile.png";
-import LayoutWithNavBar from "@layout/LayoutWithNavBar.astro";
+import Container from "@layout/Container.astro";
 ---
 
-<LayoutWithNavBar title="Trung's home">
+<Container title="Trung's home">
     <section class="flex flex-col md:flex-row justify-around items-center">
         <Avatar />
         <h1
@@ -65,7 +65,7 @@ import LayoutWithNavBar from "@layout/LayoutWithNavBar.astro";
             </picture>
         </a>
     </section>
-</LayoutWithNavBar>
+</Container>
 
 <style>
     @keyframes rotating {
