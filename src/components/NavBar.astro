@@ -1,11 +1,13 @@
 ---
 import Menu from "./Menu";
 import DarkModeSwap from "./DarkModeSwap";
-const isDarkMode = Astro.cookies.get("darkMode").boolean();
+import { DARK_MODE_COOKIE, NAV_BAR_HEIGHT } from "src/utils/constant";
+
+const isDarkMode = Astro.cookies.get(DARK_MODE_COOKIE).boolean();
 ---
 
 <nav
-    class="navbar h-[64px] mx-auto max-w-[960px] bg-eggshell dark:bg-independence border-b border-solid border-zinc-600 box-border"
+    class={`navbar h-[${NAV_BAR_HEIGHT}px] mx-auto max-w-[960px] bg-eggshell dark:bg-independence border-b border-solid border-zinc-600 box-border`}
 >
     <div class="flex-1">
         <a href="/" class="btn btn-ghost normal-case text-xl default-text"

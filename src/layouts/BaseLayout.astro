@@ -1,10 +1,11 @@
 ---
+import { DARK_MODE_COOKIE } from 'src/utils/constant';
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
-const isDarkMode = Astro.cookies.get("darkMode").boolean();
+const isDarkMode = Astro.cookies.get(DARK_MODE_COOKIE).boolean();
 ---
 
 <!DOCTYPE html>
