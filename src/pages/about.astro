@@ -1,45 +1,16 @@
 ---
-import aboutImg from "@assets/about-me.jpg"
-import Container from "@layout/Container.astro"
+import { useStoryblokApi } from "@storyblok/astro"
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro"
+
+const storyblokApi = useStoryblokApi()
+
+const { data } = await storyblokApi.get("cdn/stories/about", {
+  version: import.meta.env.DEV ? "draft" : "published",
+  // language: "vi",
+})
+
+const content = data.story.content
 ---
 
-<Container title="About me">
-  <div class="flex flex-1 flex-col items-center justify-center">
-    <div class="flex flex-col gap-4">
-      <p class="default-text paragraph">
-        Hi, I'm Trung, presently based in Saigon (Ho Chi Minh City), Vietnam.
-      </p>
-
-      <p class="default-text paragraph">
-        Currently working full time as a developer while going to university,
-        I'm aspired to become a full-stack developer a.k.a jack of all trades.
-      </p>
-      <p class="default-text paragraph">
-        This blog, or whatever people call it now, is where I share all the neat
-        stuff (mostly about tech) I learned while working or studying as well as
-        my career progress.
-      </p>
-    </div>
-
-    <figure class="mt-10">
-      <picture>
-        <img
-          alt="Me receiving scholarship"
-          class="aspect-square w-full max-w-[300px] rounded-2xl"
-          src={aboutImg}
-        />
-      </picture>
-      <figcaption
-        class="default-text mt-1 text-center text-xs font-thin italic md:text-sm"
-      >
-        Luckily snatched a scholarship @ RMIT
-      </figcaption>
-    </figure>
-  </div>
-</Container>
-
-<style>
-  .paragraph {
-    @apply max-w-xl text-base font-medium md:text-lg;
-  }
-</style>
+<!-- Should display About component -->
+<StoryblokComponent blok={content} />

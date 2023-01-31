@@ -10,6 +10,7 @@ const env = loadEnv("", process.cwd(), ["STORYBLOK", "ASTRO"])
 export default defineConfig({
   server: {
     port: +env.ASTRO_APP_PORT || 3000,
+    host: true,
   },
   integrations: [
     tailwind(),
@@ -18,7 +19,8 @@ export default defineConfig({
       accessToken: env.STORYBLOK_TOKEN,
       components: {
         // Add your components here
-        ["HomePage"]: "components/Home/index",
+        HomePage: "components/Home/index",
+        AboutPage: "components/About/index",
       },
     }),
   ],
