@@ -1,29 +1,28 @@
 ---
 import Menu from "./Menu";
 import DarkModeSwap from "./DarkModeSwap";
-import { DARK_MODE_COOKIE, NAV_BAR_HEIGHT } from "src/utils/constant";
+import { DARK_MODE_COOKIE } from "src/utils/constant";
 
 const isDarkMode = Astro.cookies.get(DARK_MODE_COOKIE).boolean();
-const path = Astro.url.pathname
+const path = Astro.url.pathname;
 ---
 
 <nav
-    class={`navbar h-[${NAV_BAR_HEIGHT}px] mx-auto max-w-[960px] bg-eggshell dark:bg-independence border-b border-solid border-zinc-600 box-border`}
+  class="navbar mx-auto box-border h-[64px] max-w-[960px] border-b border-solid border-zinc-600 bg-eggshell dark:bg-independence"
 >
-    <div class="flex-1">
-        <a href="/" class={`btn btn-ghost normal-case text-xl ${path === "/" ? "text-accent":"default-text"}`}
-            >Home</a
-        >
-    </div>
-    <DarkModeSwap
-        isDarkMode={isDarkMode}
-        className="md:hidden"
-        client:visible
-    />
-    <Menu path={path} />
-    <DarkModeSwap
-        isDarkMode={isDarkMode}
-        className="hidden md:inline-grid"
-        client:visible
-    />
+  <div class="flex-1">
+    <a
+      href="/"
+      class={`btn btn-ghost normal-case text-xl ${
+        path === "/" ? "text-accent" : "default-text"
+      }`}>Home</a
+    >
+  </div>
+  <DarkModeSwap isDarkMode={isDarkMode} className="md:hidden" client:visible />
+  <Menu path={path} />
+  <DarkModeSwap
+    isDarkMode={isDarkMode}
+    className="hidden md:inline-grid"
+    client:visible
+  />
 </nav>

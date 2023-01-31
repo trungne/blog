@@ -5,18 +5,18 @@ import Container from "@components/Container";
 import { NAV_BAR_HEIGHT } from "src/utils/constant";
 
 export interface Props {
-    title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <BaseLayout title={title}>
-    <NavBar />
-    <Container
-        className={`flex flex-col relative min-h-[calc(100%-${NAV_BAR_HEIGHT}px)]`}
-        as="main"
-    >
-        <slot />
-    </Container>
+  <NavBar />
+  <Container
+    className={`flex flex-col relative min-h-[calc(100%-${NAV_BAR_HEIGHT}px)]`}
+    as="main"
+  >
+    <slot />
+  </Container>
 </BaseLayout>
