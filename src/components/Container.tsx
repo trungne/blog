@@ -1,13 +1,13 @@
-import type React from "react";
-import cx from "classnames";
+import type React from 'react'
+import cx from 'classnames'
 
 type Props = {
-  children: React.ReactNode;
-  as?: React.ElementType;
-} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+  children: React.ReactNode
+  as?: React.ElementType
+} & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
 
 const Container: React.FC<Props> = ({
-  as: Element = "div",
+  as: Element = 'div',
   children,
   ...props
 }) => {
@@ -15,13 +15,13 @@ const Container: React.FC<Props> = ({
     <Element
       {...props}
       className={cx(
-        "mx-auto max-w-[960px] bg-eggshell px-6 py-4 dark:bg-independence",
+        'mx-auto max-w-[960px] bg-eggshell px-6 py-4 dark:bg-independence',
         props.className
       )}
     >
       {children}
     </Element>
-  );
-};
+  )
+}
 
-export default Container;
+export default Container

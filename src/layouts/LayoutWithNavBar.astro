@@ -1,14 +1,14 @@
 ---
-import BaseLayout from "@layout/BaseLayout.astro";
-import NavBar from "@components/NavBar.astro";
-import Container from "@components/Container";
-import { NAV_BAR_HEIGHT } from "src/utils/constant";
+import BaseLayout from '@layout/BaseLayout.astro'
+import NavBar from '@components/NavBar.astro'
+import Container from '@components/Container'
+import { NAV_BAR_HEIGHT } from 'src/utils/constant'
 
 export interface Props {
-  title: string;
+  title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <BaseLayout title={title}>

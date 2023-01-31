@@ -1,10 +1,10 @@
 ---
-import Menu from "./Menu";
-import DarkModeSwap from "./DarkModeSwap";
-import { DARK_MODE_COOKIE } from "src/utils/constant";
+import Menu from './Menu'
+import DarkModeSwap from './DarkModeSwap'
+import { DARK_MODE_COOKIE } from 'src/utils/constant'
 
-const isDarkMode = Astro.cookies.get(DARK_MODE_COOKIE).boolean();
-const path = Astro.url.pathname;
+const isDarkMode = Astro.cookies.get(DARK_MODE_COOKIE).boolean()
+const path = Astro.url.pathname
 ---
 
 <nav
@@ -14,7 +14,7 @@ const path = Astro.url.pathname;
     <a
       href="/"
       class={`btn btn-ghost normal-case text-xl ${
-        path === "/" ? "text-accent" : "default-text"
+        path === '/' ? 'text-accent' : 'default-text'
       }`}>Home</a
     >
   </div>

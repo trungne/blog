@@ -1,16 +1,16 @@
-import type React from "react";
-import cx from "classnames";
+import type React from 'react'
+import cx from 'classnames'
 
 type MenuProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 > & {
-  path: string;
-};
+  path: string
+}
 const Menu: React.FC<MenuProps> = ({ className, path, ...rest }) => {
   return (
     <>
-      <div {...rest} className={cx("flex-none", className)}>
+      <div {...rest} className={cx('flex-none', className)}>
         <ul className="menu menu-horizontal p-0">
           <MenuItems
             path={path}
@@ -46,15 +46,15 @@ const Menu: React.FC<MenuProps> = ({ className, path, ...rest }) => {
         </ul>
       </div>
     </>
-  );
-};
+  )
+}
 
 type MenuItemsProps = React.DetailedHTMLProps<
   React.LiHTMLAttributes<HTMLLIElement>,
   HTMLLIElement
 > & {
-  path: string;
-};
+  path: string
+}
 const MenuItems: React.FC<MenuItemsProps> = ({ path, ...props }) => {
   return (
     <>
@@ -62,8 +62,8 @@ const MenuItems: React.FC<MenuItemsProps> = ({ path, ...props }) => {
       <MenuItem path={path} href="/blog" label="Stuff I wrote" {...props} />
       <MenuItem path={path} href="/portfolio" label="Portfolio" {...props} />
     </>
-  );
-};
+  )
+}
 
 const MenuItem = ({
   path,
@@ -75,11 +75,11 @@ const MenuItem = ({
   return (
     <li
       {...props}
-      className={cx(path === href ? "text-accent" : "default-text", className)}
+      className={cx(path === href ? 'text-accent' : 'default-text', className)}
     >
       <a href={href}>{label}</a>
     </li>
-  );
-};
+  )
+}
 
-export default Menu;
+export default Menu
