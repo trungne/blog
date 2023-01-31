@@ -1,6 +1,6 @@
-import React from 'react'
-import cx from 'classnames'
-import { setDarkModeCookie } from 'src/utils/utils'
+import React from "react"
+import cx from "classnames"
+import { setDarkModeCookie } from "src/utils/utils"
 type Props = {
   isDarkMode: boolean
 } & React.DetailedHTMLProps<
@@ -12,7 +12,7 @@ const DarkModeSwap: React.FC<Props> = ({ isDarkMode, className, ...props }) => {
     <label
       {...props}
       className={cx(
-        'btn swap btn-ghost swap-rotate text-[#5C2E7E] dark:text-[#fff9ae]',
+        "btn swap btn-ghost swap-rotate text-[#5C2E7E] dark:text-[#fff9ae]",
         className
       )}
     >
@@ -20,10 +20,10 @@ const DarkModeSwap: React.FC<Props> = ({ isDarkMode, className, ...props }) => {
         onClick={(e) => {
           if (e.currentTarget.checked) {
             setDarkModeCookie(true)
-            document.documentElement.classList.add('dark')
+            document.documentElement.classList.add("dark")
           } else {
             setDarkModeCookie(false)
-            document.documentElement.classList.remove('dark')
+            document.documentElement.classList.remove("dark")
           }
         }}
         defaultChecked={isDarkMode}

@@ -1,11 +1,11 @@
-import { defineConfig } from 'astro/config'
-import storyblok from '@storyblok/astro'
-import { loadEnv } from 'vite'
-import tailwind from '@astrojs/tailwind'
-import react from '@astrojs/react'
-import vercel from '@astrojs/vercel/serverless'
+import { defineConfig } from "astro/config"
+import storyblok from "@storyblok/astro"
+import { loadEnv } from "vite"
+import tailwind from "@astrojs/tailwind"
+import react from "@astrojs/react"
+import vercel from "@astrojs/vercel/serverless"
 
-const env = loadEnv('', process.cwd(), ['STORYBLOK', 'ASTRO'])
+const env = loadEnv("", process.cwd(), ["STORYBLOK", "ASTRO"])
 
 export default defineConfig({
   server: {
@@ -18,10 +18,10 @@ export default defineConfig({
       accessToken: env.STORYBLOK_TOKEN,
       components: {
         // Add your components here
-        ['HomePage']: 'components/Home/index',
+        ["HomePage"]: "components/Home/index",
       },
     }),
   ],
-  output: 'server',
+  output: "server",
   adapter: vercel(),
 })

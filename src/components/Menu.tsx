@@ -1,5 +1,5 @@
-import type React from 'react'
-import cx from 'classnames'
+import type React from "react"
+import cx from "classnames"
 
 type MenuProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -10,7 +10,7 @@ type MenuProps = React.DetailedHTMLProps<
 const Menu: React.FC<MenuProps> = ({ className, path, ...rest }) => {
   return (
     <>
-      <div {...rest} className={cx('flex-none', className)}>
+      <div {...rest} className={cx("flex-none", className)}>
         <ul className="menu menu-horizontal p-0">
           <MenuItems
             path={path}
@@ -75,7 +75,7 @@ const MenuItem = ({
   return (
     <li
       {...props}
-      className={cx(path === href ? 'text-accent' : 'default-text', className)}
+      className={cx(path === href ? "text-accent" : "default-text", className)}
     >
       <a href={href}>{label}</a>
     </li>
