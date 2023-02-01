@@ -1,27 +1,15 @@
-import { defineConfig } from "astro/config";
-import storyblok from "@storyblok/astro";
-import { loadEnv } from "vite";
+import { defineConfig } from 'astro/config';
+
+// https://astro.build/config
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
+
+// https://astro.build/config
 import vercel from "@astrojs/vercel/serverless";
 
-const env = loadEnv("", process.cwd(), ["STORYBLOK", "ASTRO"]);
-
+// https://astro.build/config
 export default defineConfig({
-  server: {
-    port: +env.ASTRO_APP_PORT || 3000,
-  },
-  integrations: [
-    tailwind(),
-    react(),
-    storyblok({
-      accessToken: env.STORYBLOK_TOKEN,
-      components: {
-        // Add your components here
-        ["HomePage"]: "components/Home/index",
-      },
-    }),
-  ],
-  output: "server",
-  adapter: vercel(),
+  integrations: [tailwind(), react()],
+  output: 'server',
+  adapter: vercel()
 });

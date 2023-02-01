@@ -14,21 +14,21 @@ const Menu: React.FC<MenuProps> = ({ className, path, ...rest }) => {
         <ul className="menu menu-horizontal p-0">
           <MenuItems
             path={path}
-            className="default-text hidden font-thin md:block"
+            className="hidden md:block default-text font-thin"
           />
         </ul>
       </div>
 
-      <div className="dropdown dropdown-end md:hidden">
+      <div className="md:hidden dropdown dropdown-end">
         <label
           tabIndex={0}
-          className="btn btn-ghost btn-square m-1 p-0 text-black dark:text-white"
+          className="btn btn-square btn-ghost p-0 text-black dark:text-white m-1"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            className="inline-block h-5 w-5 stroke-current"
+            className="inline-block w-5 h-5 stroke-current"
           >
             <path
               strokeLinecap="round"
@@ -40,7 +40,7 @@ const Menu: React.FC<MenuProps> = ({ className, path, ...rest }) => {
         </label>
         <ul
           tabIndex={0}
-          className="dropdown-content menu !w-[180px] rounded bg-base-content dark:bg-neutral-content"
+          className="dropdown-content menu rounded !w-[180px] bg-base-content dark:bg-neutral-content"
         >
           <MenuItems path={path} className="default-text" />
         </ul>
@@ -69,13 +69,14 @@ const MenuItem = ({
   path,
   href,
   label,
-  className,
   ...props
 }: MenuItemsProps & { href: string; label: string }) => {
   return (
     <li
       {...props}
-      className={cx(path === href ? "text-accent" : "default-text", className)}
+      className={cx(
+        path === href ? "text-accent" : "default-text"
+      )}
     >
       <a href={href}>{label}</a>
     </li>

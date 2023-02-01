@@ -1,19 +1,22 @@
 ---
+import BaseLayout from "@layout/BaseLayout.astro";
+import NavBar from "@components/NavBar.astro";
 import Container from "@components/Container";
+import { NAV_BAR_HEIGHT } from "src/utils/constant";
 import BaseLayoutWithNavBar from "./BaseLayoutWithNavBar.astro";
 
 export interface Props {
-  title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <BaseLayoutWithNavBar title={title}>
-  <Container
-    className={`flex flex-col relative min-h-[calc(100vh-64px)]`}
-    as="main"
-  >
-    <slot />
-  </Container>
+    <Container
+        className={`flex flex-col relative min-h-[calc(100%-${NAV_BAR_HEIGHT}px)]`}
+        as="main"
+    >
+        <slot />
+    </Container>
 </BaseLayoutWithNavBar>

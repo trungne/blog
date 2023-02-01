@@ -3,13 +3,12 @@ import BaseLayout from "@layout/BaseLayout.astro";
 import NavBar from "@components/NavBar.astro";
 
 export interface Props {
-  title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
 ---
-
 <BaseLayout title={title}>
-  <NavBar />
-  <slot />
+    <NavBar />
+    <slot />
 </BaseLayout>
