@@ -14,21 +14,21 @@ const Menu: React.FC<MenuProps> = ({ className, path, ...rest }) => {
         <ul className="menu menu-horizontal p-0">
           <MenuItems
             path={path}
-            className="hidden md:block default-text font-thin"
+            className="default-text hidden font-thin md:block"
           />
         </ul>
       </div>
 
-      <div className="md:hidden dropdown dropdown-end">
+      <div className="dropdown-end dropdown md:hidden">
         <label
           tabIndex={0}
-          className="btn btn-square btn-ghost p-0 text-black dark:text-white m-1"
+          className="btn btn-ghost btn-square m-1 p-0 text-black dark:text-white"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            className="inline-block w-5 h-5 stroke-current"
+            className="inline-block h-5 w-5 stroke-current"
           >
             <path
               strokeLinecap="round"
@@ -40,7 +40,7 @@ const Menu: React.FC<MenuProps> = ({ className, path, ...rest }) => {
         </label>
         <ul
           tabIndex={0}
-          className="dropdown-content menu rounded !w-[180px] bg-base-content dark:bg-neutral-content"
+          className="dropdown-content menu !w-[180px] rounded bg-base-content dark:bg-neutral-content"
         >
           <MenuItems path={path} className="default-text" />
         </ul>
@@ -58,25 +58,42 @@ type MenuItemsProps = React.DetailedHTMLProps<
 const MenuItems: React.FC<MenuItemsProps> = ({ path, ...props }) => {
   return (
     <>
-      <MenuItem path={path} href="/about" label="About Me" {...props} />
-      <MenuItem path={path} href="/blog" label="Stuff I wrote" {...props} />
-      <MenuItem path={path} href="/portfolio" label="Portfolio" {...props} />
+      <MenuItem
+        isHighlighted={path === "/about"}
+        href="/about"
+        label="About Me"
+        {...props}
+      />
+      <MenuItem
+        isHighlighted={path === "/blog"}
+        href="/blog"
+        label="Stuff I wrote"
+        {...props}
+      />
+      <MenuItem
+        isHighlighted={path === "/portfolio"}
+        href="/portfolio"
+        label="Portfolio"
+        {...props}
+      />
     </>
   );
 };
 
 const MenuItem = ({
-  path,
   href,
   label,
+  isHighlighted,
+  className,
   ...props
-}: MenuItemsProps & { href: string; label: string }) => {
+}: React.DetailedHTMLProps<
+  React.LiHTMLAttributes<HTMLLIElement>,
+  HTMLLIElement
+> & { href: string; label: string; isHighlighted: boolean }) => {
   return (
     <li
       {...props}
-      className={cx(
-        path === href ? "text-accent" : "default-text"
-      )}
+      className={cx(isHighlighted ? "text-accent" : "default-text", className)}
     >
       <a href={href}>{label}</a>
     </li>

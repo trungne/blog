@@ -1,14 +1,16 @@
 import { defineConfig } from 'astro/config';
-
-// https://astro.build/config
+import { loadEnv } from "vite"
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
-
-// https://astro.build/config
 import vercel from "@astrojs/vercel/serverless";
 
-// https://astro.build/config
+const env = loadEnv("", process.cwd(), ["STORYBLOK", "ASTRO"])
+
 export default defineConfig({
+  server: {
+    port: +env.ASTRO_APP_PORT || 3000,
+    host: true,
+  },
   integrations: [tailwind(), react()],
   output: 'server',
   adapter: vercel()
