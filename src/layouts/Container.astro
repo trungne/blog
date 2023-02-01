@@ -1,17 +1,17 @@
 ---
-import Container from '@components/Container'
-import BaseLayoutWithNavBar from './BaseLayoutWithNavBar.astro'
+import Container from "@components/Container";
+import BaseLayoutWithNavBar from "./BaseLayoutWithNavBar.astro";
 
 export interface Props {
-  title: string
+  title: string;
 }
 
-const { title } = Astro.props
+const { title } = Astro.props;
 ---
 
 <BaseLayoutWithNavBar title={title}>
   <Container
-    className="flex flex-col relative min-h-[calc(100vh-64px)]"
+    className={`flex flex-col relative min-h-[calc(100vh-64px)]`}
     as="main"
   >
     <slot />
