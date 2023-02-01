@@ -1,5 +1,5 @@
-import profilePC from "./profile-pc.jpg"
-import profileMobile from "./profile-mobile.jpg"
+import profilePC from './profile-pc.jpg'
+import profileMobile from './profile-mobile.jpg'
 
 export default () => {
   return (
