@@ -1,6 +1,7 @@
 import React from "react";
 import cx from 'classnames';
-import { setDarkModeCookie } from "src/utils/utils";
+import { setDarkModeCookie } from "@utils/utils";
+
 type Props = {
     isDarkMode: boolean
 } & React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>
