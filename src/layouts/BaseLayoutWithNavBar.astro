@@ -1,14 +1,19 @@
 ---
 import BaseLayout from "@layout/BaseLayout.astro";
-import NavBar from "@components/NavBar.astro";
+import NavBar from "@components/NavBar";
+import { DARK_MODE_COOKIE } from "@utils/constant";
 
 export interface Props {
-    title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
+
+const isDarkMode = Astro.cookies.get(DARK_MODE_COOKIE)?.boolean() ?? false;
+const path = Astro.url.pathname;
 ---
+
 <BaseLayout title={title}>
-    <NavBar />
-    <slot />
+  <NavBar isDarkMode={isDarkMode} path={path} client:visible />
+  <slot />
 </BaseLayout>

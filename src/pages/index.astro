@@ -1,112 +1,108 @@
 ---
-import Avatar from "@components/Avatar";
+import Avatar from "@components/Avatar/Avatar.astro";
 import githubPC from "@assets/github-pc.png";
 import githubMobile from "@assets/github-mobile.png";
 import youtubePC from "@assets/youtube-pc.png";
 import youtubeMobile from "@assets/youtube-mobile.png";
-import Container from "@layout/Container.astro";
+import CustomContainer from "@layout/Container.astro";
+import { Image } from "astro:assets";
 ---
 
-<Container title="Trung's home">
-    <section class="flex flex-col md:flex-row justify-around items-center">
-        <Avatar />
-        <h1
-            class="text-center default-text font-normal text-lg md:text-xl lg:text-2xl"
+<CustomContainer title="Trung's home">
+  <section class="flex flex-col md:flex-row justify-around items-center">
+    <Avatar />
+    <h1 class="text-center font-normal text-lg md:text-xl lg:text-2xl">
+      Hi there! I'm Trung
+      <span class="hidden md:inline-block">-</span>
+      <br class="inline-block md:hidden" />
+       a
+      <span class="text-left relative inline-flex overflow-y-clip">
+        <span class="select-none text-transparent" aria-hidden="true"
+          >software developer</span
         >
-            Hi there! I'm Trung
-            <span class="hidden md:inline-block">-</span>
-            <br class="inline-block md:hidden" />
-            a
-            <span class="text-left relative inline-flex overflow-y-clip">
-                <span
-                    class="select-none text-transparent"
-                    aria-hidden="true">software developer</span
-                >
-                <span
-                    class="absolute top-0 left-0 rotating-words text-accent"
-                >
-                    <span class="block">software developer</span>
-                    <span class="block">movie maker</span>
-                    <span class="block">learner</span>
-                    <span class="block">software developer</span>
-                </span>
-            </span>
-        </h1>
-    </section>
-    <section class="flex-grow-[2] flex items-center justify-center mt-4">
-        <h3 class="text-center default-text text-lg md:text-xl lg:text-2xl flex-grow">
-            I like to <a
-                class="font-semibold transition-all glowing-text from-red-400 to-blue-500"
-                href="/portfolio">build</a
-            > and <a
-                class="font-semibold glowing-text from-blue-500 to-red-400"
-                href="/blog">share</a
-            > stuff!
-        </h3>
-    </section>
-    <section class="flex flex-grow items-center justify-around">
-        <a class="dark:bg-white rounded-lg" href="https://github.com/trungne">
-            <picture
-                class="w-[100px] md:w-[200px] aspect-[100/41] md:aspect-[200/82] rounded-lg"
-            >
-                <source srcset={githubPC} media="(min-width: 768px)" />
-                <img src={githubMobile} alt="github" />
-            </picture>
-        </a>
-        <a
-            class="dark:bg-white rounded-lg flex items-center"
-            href="https://www.youtube.com/channel/UCsyzWAjXCFveWqJhfqTf9yA"
-        >
-            <picture
-                class="grid place-content-center px-2 md:px-4 w-[100px] md:w-[200px] aspect-[100/41] md:aspect-[200/82]"
-            >
-                <source srcset={youtubePC} media="(min-width: 768px)" />
-                <img src={youtubeMobile} alt="youtube" />
-            </picture>
-        </a>
-    </section>
-</Container>
+        <span class="absolute top-0 left-0 rotating-words text-accent">
+          <span class="block">software developer</span>
+          <span class="block">movie maker</span>
+          <span class="block">learner</span>
+          <span class="block">software developer</span>
+        </span>
+      </span>
+    </h1>
+  </section>
+  <section class="flex-grow-[2] flex items-center justify-center mt-4">
+    <h3 class="text-center text-lg md:text-xl lg:text-2xl flex-grow">
+      I like to <a
+        class="font-semibold transition-all glowing-text from-red-400 to-blue-500"
+        href="/portfolio">build</a
+      > and <a
+        class="font-semibold glowing-text from-blue-500 to-red-400"
+        href="/blog">share</a
+      > stuff!
+    </h3>
+  </section>
+  <section class="flex flex-grow items-center justify-around">
+    <a class="dark:bg-white rounded-lg" href="https://github.com/trungne">
+      <picture
+        class="w-[100px] md:w-[200px] aspect-[100/41] md:aspect-[200/82] rounded-lg"
+      >
+        <source srcset={githubPC.src} media="(min-width: 768px)" />
+        <Image src={githubMobile} alt="github" />
+      </picture>
+    </a>
+    <a
+      class="dark:bg-white rounded-lg flex items-center"
+      href="https://www.youtube.com/channel/UCsyzWAjXCFveWqJhfqTf9yA"
+    >
+      <picture
+        class="grid place-content-center px-2 md:px-4 w-[100px] md:w-[200px] aspect-[100/41] md:aspect-[200/82]"
+      >
+        <source srcset={youtubePC.src} media="(min-width: 768px)" />
+        <Image src={youtubeMobile} alt="youtube" />
+      </picture>
+    </a>
+  </section>
+</CustomContainer>
 
 <style>
-    @keyframes rotating {
-        0% {
-            transform: translateY(-75%);
-        }
-
-        33% {
-            transform: translateY(-50%);
-        }
-
-        67% {
-            transform: translateY(-25%);
-        }
-
-        100% {
-            transform: translateY(0);
-        }
+  @keyframes rotating {
+    0% {
+      transform: translateY(-75%);
     }
 
-    .rotating-words {
-        animation: rotating 6s ease 0s infinite normal none;
-        animation-play-state: running;
+    33% {
+      transform: translateY(-50%);
     }
 
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
+    67% {
+      transform: translateY(-25%);
     }
 
-    .glowing-text {
-        background-size: 400% 400%;
-        animation: gradient 5s ease infinite;
-        /* animation-play-state: paused; */
-        @apply text-transparent bg-clip-text bg-gradient-to-r;
+    100% {
+      transform: translateY(0);
     }
+  }
+
+  .rotating-words {
+    animation: rotating 6s ease 0s infinite normal none;
+    animation-play-state: running;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .glowing-text {
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+    /* animation-play-state: paused; */
+    @apply text-transparent bg-clip-text bg-gradient-to-r;
+  }
 </style>

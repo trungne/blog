@@ -8,7 +8,7 @@ type Props = {
 const DarkModeSwap: React.FC<Props> = ({ isDarkMode, className, ...props }) => {
     return (
         <label {...props} className={cx("swap swap-rotate btn btn-ghost text-[#5C2E7E] dark:text-[#fff9ae]", className)}>
-            <input onClick={(e) => {
+            <input onClick={(e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
                 if (e.currentTarget.checked) {
                     setDarkModeCookie(true)
                     document.documentElement.classList.add("dark");
@@ -28,4 +28,4 @@ const DarkModeSwap: React.FC<Props> = ({ isDarkMode, className, ...props }) => {
     )
 }
 
-export default React.memo(DarkModeSwap)
+export default DarkModeSwap

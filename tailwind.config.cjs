@@ -15,7 +15,7 @@ module.exports = {
 
 	},
 	plugins: [require("daisyui"),
-	function ({ addComponents, theme }) {
+	function ({ addComponents }) {
 		addComponents({
 
 		})

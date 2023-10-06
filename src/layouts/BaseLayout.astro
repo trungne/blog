@@ -1,60 +1,58 @@
 ---
-import { DARK_MODE_COOKIE } from 'src/utils/constant';
+import { DARK_MODE_COOKIE } from "src/utils/constant";
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
-const isDarkMode = Astro.cookies.get(DARK_MODE_COOKIE).boolean();
+const isDarkMode = Astro.cookies.get(DARK_MODE_COOKIE)?.boolean();
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Rubik:wght@200;300;400;500;600;700;800;900&display=swap"
-		/>
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<script define:vars={{ isDarkMode }}>
-			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-			// !("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches
-			if (isDarkMode) {
-				document.documentElement.classList.add("dark");
-			} else {
-				document.documentElement.classList.remove("dark");
-			}
-		</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@200;300;400;500;600;700;800;900&display=swap"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script define:vars={{ isDarkMode }}>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      // !("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches
+      if (isDarkMode) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
 
-		<style is:global>
-			html,
-			body {
-				padding: 0;
-				margin: 0;
-				font-family: Rubik;
-				/* font-family: Montserrat; */
-				height: 100%;
-			}
+    <style is:global>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: Rubik;
+        /* font-family: Montserrat; */
+        height: 100%;
+      }
 
-			a {
-				color: inherit;
-				text-decoration: none;
-			}
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-			* {
-				box-sizing: border-box;
-			}
-
-			.default-text {
-				@apply dark:text-primary-content;
-			}
-		</style>
-	</head>
-	<body class="bg-base-300 dark:bg-neutral">
-		<slot />
-	</body>
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-base-300 dark:bg-neutral text-black dark:text-primary-content"
+  >
+    <slot />
+  </body>
 </html>

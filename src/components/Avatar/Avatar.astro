@@ -1,0 +1,13 @@
+---
+import profilePC from "@assets/profile-pc.jpg";
+import profileMobile from "@assets/profile-mobile.jpg";
+---
+
+<div class="avatar block md:my-8">
+  <div class="w-44 h-44 md:h-64 md:w-64 rounded-full mx-auto">
+    <picture>
+      <source srcset={profilePC.src} media="(min-width: 768px)" />
+      <img src={profileMobile.src} alt="my awesome avatar" />
+    </picture>
+  </div>
+</div>

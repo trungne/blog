@@ -1,22 +1,25 @@
 ---
 import BaseLayout from "@layout/BaseLayout.astro";
-import NavBar from "@components/NavBar.astro";
-import Container from "@components/Container";
-import { NAV_BAR_HEIGHT } from "src/utils/constant";
+import NavBar from "@components/NavBar";
+import CustomContainer from "@components/Container";
+import { DARK_MODE_COOKIE } from "@utils/constant";
 
 export interface Props {
-    title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
+
+const isDarkMode = Astro.cookies.get(DARK_MODE_COOKIE)?.boolean() ?? false;
+const path = Astro.url.pathname;
 ---
 
 <BaseLayout title={title}>
-    <NavBar />
-    <Container
-        className="flex flex-col relative min-h-[calc(100%-64px)]"
-        as="main"
-    >
-        <slot />
-    </Container>
+  <NavBar isDarkMode={isDarkMode} path={path} client:visible />
+  <CustomContainer
+    className="flex flex-col relative min-h-[calc(100%-64px)]"
+    as="main"
+  >
+    <slot />
+  </CustomContainer>
 </BaseLayout>

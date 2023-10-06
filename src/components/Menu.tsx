@@ -1,4 +1,4 @@
-import type React from "react";
+import React from "react";
 import cx from "classnames";
 
 type MenuProps = React.DetailedHTMLProps<
@@ -12,10 +12,7 @@ const Menu: React.FC<MenuProps> = ({ className, path, ...rest }) => {
     <>
       <div {...rest} className={cx("flex-none", className)}>
         <ul className="menu menu-horizontal p-0">
-          <MenuItems
-            path={path}
-            className="default-text hidden font-thin md:block"
-          />
+          <MenuItems path={path} className="hidden font-thin md:block" />
         </ul>
       </div>
 
@@ -42,7 +39,7 @@ const Menu: React.FC<MenuProps> = ({ className, path, ...rest }) => {
           tabIndex={0}
           className="dropdown-content menu !w-[180px] rounded bg-base-content dark:bg-neutral-content"
         >
-          <MenuItems path={path} className="default-text" />
+          <MenuItems path={path} />
         </ul>
       </div>
     </>
@@ -93,7 +90,7 @@ const MenuItem = ({
   return (
     <li
       {...props}
-      className={cx(isHighlighted ? "text-accent" : "default-text", className)}
+      className={cx(isHighlighted ? "text-accent" : "", className)}
     >
       <a href={href}>{label}</a>
     </li>
