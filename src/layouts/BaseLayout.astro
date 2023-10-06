@@ -5,6 +5,7 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+
 const isDarkMode = Astro.cookies.get(DARK_MODE_COOKIE)?.boolean();
 ---
 
